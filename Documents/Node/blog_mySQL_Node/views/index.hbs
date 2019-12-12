@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/style.css">
+    <title>Blog</title>
+</head>
+<body>
+    <h1>Blog Page</h1>
+
+    <form action="/post" method="POST">
+
+        <input type="text" name="title" placeholder="Title" /> </br>
+        <input type="text" name="postContent" placeholder="Write a post" /> </br>
+        <input type="number" name="userId" placeholder="Enter yout user ID" /> </br>
+        
+        <input type="hidden" name="_method" value="PUT" />
+        <button type="submit">Post</button>
+    </form>
+
+    {{#each data}}
+        <div>
+            <h1>{{this.post.title}}</h1>
+            <p>{{this.post.content}}</p>
+            <p>User ID: {{this.post.user_id}}</p>
+        </div>
+
+        <form action="/comment" method="POST">
+            <input type="text" name="userCommentId" placeholder="ID" /> <br/>
+            <input type="text" name="userCommentCont" placeholder="Comment" /> <br/>
+            <input type="hidden" name="_commentPostId" value={{this.post.id}}>
+            <button type="submit">Add Comment</button>
+        </form>
+
+        {{#each this.comments}}
+            <h3>User {{this.user_id}} Says:</h3>
+            <p>{{this.content}}</p>
+        {{/each}}
+    {{/each}}
+
+
+    <form action="/register" method="POST">
+        <input type="text" name="theUserName" placeholder="name" /> <br/>
+        <input type="text" name="theUserEmail" placeholder="email" /> <br/>
+        <button type="submit">Register</button>
+    </form>
+
+
+{{!-- 
+    <form action="/register" method="POST">
+        <input type="text" name="theUserName" placeholder="name" /> <br/>
+        <input type="text" name="theUserEmail" placeholder="email" /> <br/>
+        <button type="submit">Register</button> 
+    </form> --}}
+</body>
+</html>

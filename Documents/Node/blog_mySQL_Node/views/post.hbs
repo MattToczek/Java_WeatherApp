@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Posted</title>
+</head>
+<body>
+    <h1>Posted your post!</h1>
+    {{#each post}}
+        <div>
+            <h2>{{this.title}}<p> by {{this.user_id}}</p></h2>
+            <p>{{this.content}}</p>
+        </div>
+    {{/each}}
+    <div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users</title>
+</head>
+<body>
+    <h1>Users:</h1>
+    {{#each data}}
+        <div>
+            <h2>{{this.user_name}}</h2>
+            <h3>Email: {{this.email}} ID: {{this.id}}</h3>
+
+        </div>
+    {{/each}}
+
+</body>
+</html>
